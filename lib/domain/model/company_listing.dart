@@ -1,0 +1,20 @@
+import 'package:json_annotation/json_annotation.dart'; // toJson 불필요시 삭제
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'company_listing.freezed.dart';
+
+part 'company_listing.g.dart';
+
+@freezed
+class CompanyListing with _$CompanyListing {
+  const factory CompanyListing({
+    required String symbol,
+    required String name,
+    required String exchange,
+  }) = _CompanyListing;
+
+  factory CompanyListing.fromJson(Map<String, Object?> json) =>
+      _$CompanyListingFromJson(json);
+
+  // Map<String, dynamic> toJson() => _$CompanyListingToJson(this); // 불필요시 삭제
+}
